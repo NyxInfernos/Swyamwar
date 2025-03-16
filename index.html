@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<title>SWYAMVAR.com</title>
+<link rel="icon" type="image/x-icon" href="favicon.ico">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<style>
+
+
+.button {
+  border: 1px solid green;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  transform: skewX(-10deg);
+  height: 50px;
+  width: 200px;
+  border-radius: 20px 5px 20px 0px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font: 15px sans-serif;
+  font-weight: 300;
+  text-shadow: 0 0 20px #fff;
+  text-transform: uppercase;
+  -webkit-animation: breath2 2s 0.5s infinite alternate;
+          animation: breath2 2s 0.5s infinite alternate;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.button:before {
+  content: "";
+  display: block;
+  width: calc(100% - 22px);
+  height: calc(50px - 8px);
+  -webkit-animation: breath 2s infinite alternate;
+          animation: breath 2s infinite alternate;
+  left: 10px;
+  top: 3px;
+  position: absolute;
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: 15px 3px 15px 3px;
+}
+.button.fire {
+  border-color: #ffeca8;
+  background-image: linear-gradient(to bottom, rgba(255, 138, 48, 0.6), rgba(240, 96, 29, 0.6));
+  box-shadow: 0 0 70px rgba(255, 138, 48, 0.6), 0 5px 20px rgba(255, 138, 48, 0.6), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+  color: #ffeca8;
+}
+.button.fire:before {
+  box-shadow: inset 0 0 30px 0 #ffeca8;
+}
+.button.ice {
+  border-color: #a8ecff;
+  background-image: linear-gradient(to bottom, rgba(48, 138, 255, 0.5), rgba(29, 96, 240, 0.5));
+  box-shadow: 0 0 70px rgba(48, 138, 255, 0.5), 0 5px 20px rgba(48, 138, 255, 0.5), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+  color: #a8ecff;
+}
+.button.ice:before {
+  box-shadow: inset 0 0 30px 0 #a8ecff;
+}
+.button:hover.fire {
+  box-shadow: 0 0 70px rgba(255, 138, 48, 0.8), 0 5px 20px rgba(255, 138, 48, 0.8), inset 0 1px #ffeca8, inset 0 -1px #ffeca8;
+}
+.button:hover.fire:before {
+  box-shadow: inset 0 0 50px 0 #ffeca8;
+}
+.button:hover.ice {
+  box-shadow: 0 0 70px rgba(48, 138, 255, 0.8), 0 5px 20px rgba(48, 138, 255, 0.8), inset 0 1px #a8ecff, inset 0 -1px #a8ecff;
+}
+.button:hover.ice:before {
+  box-shadow: inset 0 0 50px 0 #a8ecff;
+}
+.button + .button {
+  margin-top: 15px;
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.name {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 40px;
+  color: #fff;
+  text-shadow: 0 0 20px #fff;
+  margin: 0;
+  padding: 0;
+}
+
+@-webkit-keyframes breath {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.95);
+  }
+}
+
+@keyframes breath {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0.95);
+  }
+}
+@-webkit-keyframes breath2 {
+  0% {
+    transform: skewX(-10deg) scaleX(1);
+  }
+  100% {
+    transform: skewX(-10deg) scaleX(0.95);
+  }
+}
+@keyframes breath2 {
+  0% {
+    transform: skewX(-10deg) scaleX(1);
+  }
+  100% {
+    transform: skewX(-10deg) scaleX(0.95);
+  }
+}
+.ref {
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  padding: 5px 8px;
+  position: absolute;
+  font-size: 16px;
+  bottom: 10px;
+  right: 10px;
+  color: #fff;
+  font-weight: 300;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+.ref::first-letter {
+  font-size: 12px;
+}
+
+  #god{
+    align-items: flex-end;
+  }
+  .button.purple {
+  border-color: #d8a8ff;
+  background-image: linear-gradient(to bottom, rgba(138, 48, 255, 0.6), rgba(96, 29, 240, 0.6));
+  box-shadow: 0 0 70px rgba(138, 48, 255, 0.6), 0 5px 20px rgba(138, 48, 255, 0.6), inset 0 1px #d8a8ff, inset 0 -1px #d8a8ff;
+  color: #d8a8ff;
+}
+
+.button.purple:before {
+  box-shadow: inset 0 0 30px 0 #d8a8ff;
+}
+
+.button:hover.purple {
+  box-shadow: 0 0 70px rgba(138, 48, 255, 0.8), 0 5px 20px rgba(138, 48, 255, 0.8), inset 0 1px #d8a8ff, inset 0 -1px #d8a8ff;
+}
+
+.button:hover.purple:before {
+  box-shadow: inset 0 0 50px 0 #d8a8ff;
+}
+a{
+  text-decoration: none !important;
+}
+/* From Uiverse.io by Navarog21 */ 
+.button1 {
+  position: relative;
+  width: 11em;
+  height: 4em;
+  outline: none;
+  transition: 0.1s;
+  background-color: transparent;
+  border: none;
+  font-size: 13px;
+  font-weight: bold;
+  color: #ddebf0;
+}
+
+#clip {
+  --color: #2761c3;
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border: 5px double var(--color);
+  box-shadow: inset 0px 0px 15px #195480;
+  -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.arrow {
+  position: absolute;
+  transition: 0.2s;
+  background-color: #2761c3;
+  top: 35%;
+  width: 11%;
+  height: 30%;
+}
+
+#leftArrow {
+  left: -13.5%;
+  -webkit-clip-path: polygon(100% 0, 100% 100%, 0 50%);
+}
+
+#rightArrow {
+  -webkit-clip-path: polygon(100% 49%, 0 0, 0 100%);
+  left: 102%;
+}
+
+.button1:hover #rightArrow {
+  background-color: #27c39f;
+  left: -15%;
+  animation: 0.6s ease-in-out both infinite alternate rightArrow8;
+}
+
+.button1:hover #leftArrow {
+  background-color: #27c39f;
+  left: 103%;
+  animation: 0.6s ease-in-out both infinite alternate leftArrow8;
+}
+
+.corner {
+  position: absolute;
+  width: 4em;
+  height: 4em;
+  background-color: #2761c3;
+  box-shadow: inset 1px 1px 8px #2781c3;
+  transform: scale(1) rotate(45deg);
+  transition: 0.2s;
+}
+
+#rightTop {
+  top: -1.98em;
+  left: 91%;
+}
+
+#leftTop {
+  top: -1.96em;
+  left: -3.0em;
+}
+
+#leftBottom {
+  top: 2.10em;
+  left: -2.15em;
+}
+
+#rightBottom {
+  top: 45%;
+  left: 88%;
+}
+
+.button1:hover #leftTop {
+  animation: 0.1s ease-in-out 0.05s both changeColor8,
+  0.2s linear 0.4s both lightEffect8;
+}
+
+.button1:hover #rightTop {
+  animation: 0.1s ease-in-out 0.15s both changeColor8,
+  0.2s linear 0.4s both lightEffect8;
+}
+
+.button1:hover #rightBottom {
+  animation: 0.1s ease-in-out 0.25s both changeColor8,
+  0.2s linear 0.4s both lightEffect8;
+}
+
+.button1:hover #leftBottom {
+  animation: 0.1s ease-in-out 0.35s both changeColor8,
+  0.2s linear 0.4s both lightEffect8;
+}
+
+.button1:hover .corner {
+  transform: scale(1.25) rotate(45deg);
+}
+
+.button1:hover #clip {
+  animation: 0.2s ease-in-out 0.55s both greenLight8;
+  --color: #27c39f;
+}
+
+@keyframes changeColor8 {
+  from {
+    background-color: #2781c3;
+  }
+
+  to {
+    background-color: #27c39f;
+  }
+}
+
+@keyframes lightEffect8 {
+  from {
+    box-shadow: 1px 1px 5px #27c39f;
+  }
+
+  to {
+    box-shadow: 0 0 2px #27c39f;
+  }
+}
+
+@keyframes greenLight8 {
+  from {
+  }
+
+  to {
+    box-shadow: inset 0px 0px 32px #27c39f;
+  }
+}
+
+@keyframes leftArrow8 {
+  from {
+    transform: translate(0px);
+  }
+
+  to {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes rightArrow8 {
+  from {
+    transform: translate(0px);
+  }
+
+  to {
+    transform: translateX(-10px);
+  }
+}
+
+
+footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ff00ff;
+            position: relative;
+            z-index: 2;
+            animation: rainbow 5s infinite;
+            background-color:black;
+        }
+
+</style>
+<script>
+  
+</script>
+</head>
+<body>
+
+  <nav class="navbar navbar-light bg-dark">
+    <a class="navbar-brand" style='color:white; font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-style: normal;' href="#">SWYAMVAR.com</a>
+   <div style="gap:20px;display:flex;align-self: flex-end;"> 
+   
+    <a onclick="alert('download it!')"><div class="button fire">GAMES</div>
+</a>
+    <a href="aboutus.html"><div class="button ice">ABOUT</div>
+  </a>
+  <a href= "contact.html"><div class="button purple">CONTACT US</div></a>
+  </div>
+  </nav>
+ 
+  <div style="
+  position:absolute; 
+  z-index: 1; 
+  width:100%;
+  height:100%; 
+  background: rgba(255,255,255,0.5);
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center;
+">
+  <p style="text-align:center;" class="name">Sakshit Bird</p>
+  <p style="text-align:center; font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-style: normal;">SWYAMVAR.com</p>
+
+<button class="button1" style="text-align: center;" onclick='window.open("result.html")'>
+  P L A Y
+      <div id="clip">
+          <div id="leftTop" class="corner"></div>
+          <div id="rightBottom" class="corner"></div>
+          <div id="rightTop" class="corner"></div>
+          <div id="leftBottom" class="corner"></div>
+      </div>
+      <span id="rightArrow" class="arrow"></span>
+      <span id="leftArrow" class="arrow"></span>
+  </button>
+</div>
+<div style="width:100%; position:relative;"> 
+   <image src="shaadi.webp" style="height:700px;width:100%;"/>
+</div>
+
+<div>
+
+</body>
+<footer>
+  <p>&copy; 2024 SWYAMVAR.com. NO RIGHTS RESERVED. PLEASE STEAL OUR TERRIBLE IDEAS!</p>
+  <p>Thanks to Scrapyard for helping us make scrappy things! They regret it deeply!</p>
+  <marquee scrollamount="20" style="color: #00ff00; font-size: 20px;">THIS SITE MAY CAUSE: CONFUSION, EYE STRAIN, EXISTENTIAL CRISES, AND UNCONTROLLABLE LAUGHTER!!!</marquee>
+</footer>
+
+<script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  intent="WELCOME"
+  chat-title="unhelpful-games"
+  agent-id="c1b7d1a2-9d1b-4af2-b6ba-2f69696649bd"
+  language-code="en"
+></df-messenger>
+
+
+
+
+
+</html>

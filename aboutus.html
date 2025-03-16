@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SWYAMVAR.com - THE MOST RIDICULOUS GAMING SITE EVER!!!</title>
+    <style>
+        @keyframes rainbow {
+            0% {color: red;}
+            14% {color: orange;}
+            28% {color: yellow;}
+            42% {color: green;}
+            57% {color: blue;}
+            71% {color: indigo;}
+            85% {color: violet;}
+            100% {color: red;}
+        }
+        
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-30px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        body {
+            font-family: "Comic Sans MS", cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-image: url('/api/placeholder/400/320');
+            background-size: cover;
+            cursor: url('/api/placeholder/32/32'), auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+            animation: rainbow 3s infinite, shake 0.5s infinite;
+            text-shadow: 3px 3px 0 #ff00ff, -3px -3px 0 #00ffff;
+        }
+
+        main {
+            background: rgba(255, 192, 203, 0.8);
+            padding: 20px;
+            border-radius: 50px;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 2;
+            max-height: 90vh;
+            overflow-y: auto;
+            margin: 20px;
+            border: 10px dotted green;
+        }
+
+        section {
+            margin-bottom: 20px;
+            transform: rotate(-1deg);
+        }
+
+        section:nth-child(even) {
+            transform: rotate(2deg);
+        }
+
+        h2 {
+            color: #ff00ff;
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            border-bottom: 5px dashed #00ff00;
+            padding-bottom: 5px;
+        }
+
+        .member {
+            margin: 10px 0;
+            padding: 15px;
+            border: 3px solid #ff9900;
+            border-radius: 30px;
+            transition: all 0.3s;
+            background: linear-gradient(45deg, yellow, cyan);
+        }
+
+        .member:hover {
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 20px #ff00ff;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #ff00ff;
+            position: relative;
+            z-index: 2;
+            animation: rainbow 5s infinite;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            background-color: #ff00ff;
+            color: yellow;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            font-weight: bold;
+            font-size: 1.3em;
+            animation: float 3s infinite;
+        }
+
+        .button:hover {
+            background-color: #00ffff;
+            transform: rotate(10deg) scale(1.2);
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        a {
+            color: #ff0000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        p {
+            font-size: 1.3em;
+            line-height: 1.5;
+        }
+        
+        .blink {
+            animation: blink 1s infinite;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .spinning-emoji {
+            display: inline-block;
+            font-size: 2em;
+            animation: spin 2s linear infinite;
+        }
+        
+        #popup {
+            position: fixed;
+            display: none;
+            width: 300px;
+            height: 200px;
+            background-color: #ff00ff;
+            border: 5px solid #00ff00;
+            z-index: 1000;
+            border-radius: 20px;
+            padding: 20px;
+            color: yellow;
+            font-size: 1.5em;
+            text-align: center;
+            box-shadow: 0 0 30px #ff00ff;
+        }
+        
+        #cat-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 10;
+        }
+        
+        #cat {
+            font-size: 50px;
+            animation: catWalk 20s linear infinite;
+        }
+        
+        @keyframes catWalk {
+            0% { transform: translateX(-50px); }
+            100% { transform: translateX(calc(100vw + 50px)); }
+        }
+    </style>
+</head>
+<body>
+    <div id="popup">
+        <p>CONGRATULATIONS!!!!</p>
+        <p>You've won exactly NOTHING!!! <a href="https://www.youtube.com/watch?v=b6uXE9hI3Vc">Advice for 5 year olds</a></p></p>
+        <button onclick="document.getElementById('popup').style.display='none'">OK I GUESS</button>
+    </div>
+    
+    <div id="cat-container">
+        <div id="cat">🐱</div>
+    </div>
+    
+    <header>
+        <h1>ABOUT US OR WHATEVER</h1>
+        <div class="blink" style="font-size: 24px; color: #ff0000;">⚠️⚠️ UNDER CONSTRUCTION FOREVER! ⚠️⚠️</div>
+    </header>
+    <main>
+        <marquee behavior="alternate" scrollamount="12" style="font-size: 30px; color: red; background: yellow;">
+            WELCOME TO THE MOST RIDICULOUS GAMING WEBSITE EVER CREATED BY HUMANS!!!
+        </marquee>
+        
+        <section class="intro">
+            <h2>Welcome to SWYAMVAR.com <span class="spinning-emoji">🎮</span></h2>
+            <p>This is an ABSOLUTELY RIDICULOUSLY ABSURD gaming website that makes ZERO SENSE! We specialize in games that don't work, graphics that hurt your eyes, and loading times that make you question your life choices!
+                Do you exist? for this?
+            </p>
+            <p style="transform: rotate(5deg); color: #ff00ff;">WHY ARE YOU EVEN HERE? GO OUTSIDE! TOUCH GRASS!</p>
+            <p style="transform: rotate(-5deg); color: blue;">delete your life</p>
+
+        </section>
+        
+        <section class="inspiration">
+            <h2>Our "Inspiration" <span class="spinning-emoji">🤪</span></h2>
+            <p>We were inspired by watching paint dry while simultaneously stubbing our toes and listening to elevator music. Then we asked ourselves: "What if websites could cause the same feeling?"</p>
+            <marquee direction="right" style="color: green;">The absurdities around us are NOTHING compared to this website!</marquee>
+        </section>
+        
+        <section class="vision">
+            <h2>Our Vision <span class="spinning-emoji">👁️</span></h2
+            <p>Do we have a vision? PROBABLY NOT! But if we did, it would involve dinosaurs riding unicycles while juggling flaming hot cheetos. WE'RE JUST MAKING STUFF UP AS WE GO!Or are we ?
+                maybe this really is an illuminati conspiracy?
+            </p>
+            <div style="text-align: center; margin: 20px;">
+                <img src="ill.jpg" alt="Our vision (maybe)" style="border: 5px dashed #ff00ff; transform: rotate(-5deg);"/>
+            </div>
+        </section>
+        
+        <section class="team">
+            <h2>Meet the "Team" <span class="spinning-emoji">👨‍💻</span></h2>
+            <a href="https://arnavvashisthcodingaccountnew.github.io/" onclick="alert('ARE YOU SURE YOU WANT TO LEAVE THIS AMAZING WEBSITE?!?!?'); return true;">
+            <div class="member" onclick="document.getElementById('popup').style.display='block'">
+                <h3 style="font-size: 2em; text-shadow: 2px 2px #0000ff;">Ansh</h3>
+                <p>Compiles all the scrappy stuff together! 
+                </p></a>
+            </div>
+
+            <div class="member">
+                <h3 style="font-size: 2em; text-shadow: 2px 2px #ff0000;">Arnav "The Chaos Master" Vashisth</h3>
+                <p>A front-end "wizard" who accidentally set fire to the back-end. His mission? To make every design as CONFUSING and JARRING as humanly possible!</p>
+            </div>
+            
+            <div class="member" onclick="alert('THIS TEAM MEMBER DOESN\'T EXIST! THEY\'RE A FIGMENT OF YOUR IMAGINATION!')">
+                <h3 style="font-size: 2em; text-shadow: 2px 2px #00ff00;">Aniruddh</h3>
+                <p>Specializes in creating graphics that look like they were made in MS Paint... by a toddler... during an earthquake. He also creates out of control flappy birds.
+                </p>
+            </div>
+            
+            <div class="member" onclick="document.getElementById('popup').style.display='block'">
+                <h3 style="font-size: 2em; text-shadow: 2px 2px #0000ff;">Mishika</h3>
+                <p>Specializes in the ability of making voiceovers
+                </p>
+            </div>
+        </section>
+        
+        <section class="call-to-action" style="text-align: center;">
+            <h2>Made with 💩 at Scrapyard Lucknow</h2>
+            <p style="font-size: 24px;">We spent at least 17 minutes making this site!</p>
+            <button class="button" onclick="window.location.href='#'; alert('THIS BUTTON DOES ABSOLUTELY NOTHING! HAHAHA!');">CLICK ME FOR NO REASON!</button>
+        </section>
+        
+        <section style="background-color: yellow; padding: 20px; border-radius: 30px; transform: rotate(-3deg);">
+            <h2>VISITOR COUNTER</h2>
+            <p style="font-size: 40px; text-align: center; font-family: 'Courier New', monospace; color: red;">
+                <script>document.write(Math.floor(Math.random() * 10000000));</script>
+            </p>
+            <p style="text-align: center; font-size: 12px;">(This number is completely made up)</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 SWYAMVAR.com. NO RIGHTS RESERVED. PLEASE STEAL OUR TERRIBLE IDEAS!
+        <p>Thanks to Scrapyard for helping us make scrappy things! They regret it deeply!</p>
+        <marquee scrollamount="20" style="color: #00ff00; font-size: 20px;">THIS SITE MAY CAUSE: CONFUSION, EYE STRAIN, EXISTENTIAL CRISES, AND UNCONTROLLABLE LAUGHTER!!!</marquee>
+    
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Make random emojis float across the screen
+        setInterval(function() {
+            const emoji = document.createElement("div");
+            const emojis = ["🎮", "👾", "🤪", "💩", "🦄", "🌈", "🤡", "👽", "🔥", "🍕"];
+            emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+            emoji.style.position = "fixed";
+            emoji.style.left = Math.random() * 100 + "vw";
+            emoji.style.top = Math.random() * 100 + "vh";
+            emoji.style.fontSize = Math.random() * 30 + 20 + "px";
+            emoji.style.zIndex = "1000";
+            emoji.style.userSelect = "none";
+            emoji.style.animation = "float 4s linear forwards";
+            document.body.appendChild(emoji);
+            
+            setTimeout(function() {
+                document.body.removeChild(emoji);
+            }, 8000);
+        }, 500);
+        
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create even more chaotic background
+        const geometry = new THREE.TorusKnotGeometry(50, 10, 100, 16);
+        const material = new THREE.MeshBasicMaterial({ 
+            color: 0xff00ff, 
+            wireframe: true 
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
+
+        // Create rotating weird shapes everywhere
+        const geometries = [
+            new THREE.TetrahedronGeometry(1),
+            new THREE.OctahedronGeometry(1),
+            new THREE.DodecahedronGeometry(1),
+            new THREE.TorusGeometry(1, 0.5, 8, 20),
+            new THREE.ConeGeometry(1, 2, 8)
+        ];
+        
+        // Create wild shapes all over
+        for (let i = 0; i < 100; i++) {
+            const randGeometry = geometries[Math.floor(Math.random() * geometries.length)];
+            const randColor = new THREE.Color(
+                Math.random(),
+                Math.random(),
+                Math.random()
+            );
+            const objectMaterial = new THREE.MeshBasicMaterial({ 
+                color: randColor, 
+                wireframe: true 
+            });
+            
+            const object = new THREE.Mesh(randGeometry, objectMaterial);
+            object.position.x = Math.random() * 40 - 20;
+            object.position.y = Math.random() * 40 - 20;
+            object.position.z = Math.random() * 40 - 20;
+            object.rotation.x = Math.random() * Math.PI;
+            object.rotation.y = Math.random() * Math.PI;
+            object.scale.set(
+                Math.random() * 2 + 0.5,
+                Math.random() * 2 + 0.5,
+                Math.random() * 2 + 0.5
+            );
+            scene.add(object);
+        }
+
+        camera.position.z = 5;
+
+        // Animation loop with CHAOS
+        function animate() {
+            requestAnimationFrame(animate);
+            sphere.rotation.x += 0.003;
+            sphere.rotation.y += 0.005;
+            sphere.rotation.z += 0.001;
+            
+            scene.traverse((object) => {
+                if (object.isMesh && object !== sphere) {
+                    object.rotation.x += Math.random() * 0.05;
+                    object.rotation.y += Math.random() * 0.05;
+                    object.rotation.z += Math.random() * 0.05;
+                    
+                    // Make objects randomly change position slightly
+                    object.position.x += (Math.random() - 0.5) * 0.1;
+                    object.position.y += (Math.random() - 0.5) * 0.1;
+                    object.position.z += (Math.random() - 0.5) * 0.1;
+                    
+                    // Keep objects from flying too far away
+                    if (Math.abs(object.position.x) > 30) object.position.x *= -0.9;
+                    if (Math.abs(object.position.y) > 30) object.position.y *= -0.9;
+                    if (Math.abs(object.position.z) > 30) object.position.z *= -0.9;
+                }
+            });
+            renderer.render(scene, camera);
+        }
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            renderer.setSize(width, height);
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+        
+        // Random popups
+        setTimeout(function() {
+            setInterval(function() {
+                if (Math.random() < 0.2) { // 20% chance every 15 seconds
+                    const messages = [
+                        "WHY ARE YOU STILL HERE?",
+                        "THIS WEBSITE IS UNDER CONSTRUCTION... FOREVER!",
+                        "CLICK FASTER! THE INTERNET IS RUNNING OUT!",
+                        "WARNING: YOUR EYEBALLS MAY MELT!",
+                        "CONGRATULATIONS! YOU'VE WON A HEADACHE!",
+                        "your system shall thou crash!"
+                    ];
+                    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                    alert(randomMessage);
+                }
+            }, 15000);
+        }, 30000); // Start after 30 seconds
+        
+        // Make elements randomly shake
+        setInterval(function() {
+            const elements = document.querySelectorAll('h2, .member');
+            const randomElement = elements[Math.floor(Math.random() * elements.length)];
+            randomElement.style.animation = "shake 0.5s";
+            setTimeout(function() {
+                randomElement.style.animation = "";
+            }, 500);
+        }, 3000);
+    </script>
+</body>
+</html>
